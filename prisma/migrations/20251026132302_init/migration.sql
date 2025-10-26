@@ -1,0 +1,8 @@
+-- CreateTable
+CREATE TABLE "Mood" (
+    "id" INTEGER NOT NULL PRIMARY KEY AUTOINCREMENT,
+    "emoji" TEXT NOT NULL,
+    "comment" TEXT,
+    "createdAt" DATETIME NOT NULL DEFAULT CURRENT_TIMESTAMP,
+    "updatedAt" DATETIME NOT NULL
+);
