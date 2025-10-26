@@ -1,13 +1,11 @@
 import Link from 'next/link';
+import styles from './Header.module.css';
 
 const Header = () => {
 	return (
-		<header className='w-full border-b border-gray-200 py-4 mb-8 text-center'>
-			<Link
-				href='/'
-				className='text-2xl font-bold text-gray-800 hover:text-blue-600 transition-colors duration-150'
-			>
-				Mini Moods
+		<header className={styles.header}>
+			<Link href='/' className={styles.link}>
+				<h1 className={styles.title}>Mini Moods</h1>
 			</Link>
 		</header>
 	);

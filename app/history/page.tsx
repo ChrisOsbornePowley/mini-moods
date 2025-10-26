@@ -1,7 +1,7 @@
 import MoodHistory from '@/app/components/MoodHistory';
 
-const page = () => {
+const HistoryPage = () => {
 	return <MoodHistory />;
 };
 
-export default page;
+export default HistoryPage;

@@ -2,6 +2,8 @@
 
 import { useState } from 'react';
 import Emoji from '@/app/components/Emoji';
+import Button from './Button';
+import styles from './MoodPicker.module.css';
 
 const moods = ['😁', '🙂', '🫤', '😞', '😩'];
 
@@ -44,13 +46,12 @@ const MoodPicker = ({ onSuccess }: { onSuccess?: () => void }) => {
 	}
 
 	return (
-		<form
-			onSubmit={handleSubmit}
-			className='flex flex-col gap-4 mb-6 p-6 bg-white rounded-xl shadow-md max-w-md mx-auto border border-gray-100'
-		>
-			<label className='font-medium text-gray-700'>
-				Choose a mood emoji: <span className='text-red-500'>* </span>
-				<div className='flex gap-3 mt-2'>
+		<form onSubmit={handleSubmit} className={styles.form}>
+			<div>
+				<label>
+					Choose a mood emoji: <span className={styles.required}>* </span>
+				</label>
+				<div className={styles.emojiRow}>
 					{moods.map((mood) => (
 						<Emoji
 							key={mood}
@@ -60,30 +61,24 @@ const MoodPicker = ({ onSuccess }: { onSuccess?: () => void }) => {
 						/>
 					))}
 				</div>
-			</label>
+			</div>
 
-			<label className='font-medium text-gray-700'>
-				And add a comment for today:
+			<div>
+				<label>And add a comment for today:</label>
 				<input
 					type='text'
 					value={comment}
 					onChange={(e) => setComment(e.target.value)}
-					className='border border-gray-300 rounded-lg px-3 py-2 mt-2 focus:outline-none focus:ring-2 focus:ring-blue-400 transition-all duration-150'
+					className={styles.input}
 					placeholder='Optional comment'
 				/>
-			</label>
+			</div>
 
-			<button
-				type='submit'
-				disabled={loading}
-				className={`bg-blue-500 hover:bg-blue-600 text-white px-5 py-2 rounded-lg font-semibold shadow transition-all duration-150 ${
-					loading ? 'opacity-60 cursor-not-allowed' : ''
-				}`}
-			>
+			<Button type='submit' disabled={loading}>
 				{loading ? 'Adding...' : 'Add Mood'}
-			</button>
+			</Button>
 
-			{error && <div className='text-red-500 font-medium mt-2'> {error} </div>}
+			{error && <div>{error}</div>}
 		</form>
 	);
 };

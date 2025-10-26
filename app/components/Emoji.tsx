@@ -1,4 +1,4 @@
-import React from 'react';
+import styles from './Emoji.module.css';
 
 interface EmojiProps {
 	emoji: string;
@@ -13,18 +13,10 @@ export default function Emoji({
 	onClick,
 	ariaLabel,
 }: EmojiProps) {
-	const base =
-		'text-3xl p-3 border-2 rounded-full transition-all duration-150 focus:outline-none focus:ring-2 focus:ring-blue-400 cursor-pointer bg-gray-50 border-gray-300';
-	const selectedClass = 'bg-blue-100 border-blue-500 shadow-sm';
-
 	return (
 		<button
 			type='button'
-			className={
-				selected
-					? `${base} ${selectedClass}`
-					: `${base} hover:scale-110 hover:border-blue-400`
-			}
+			className={`${styles.emoji} ${selected ? styles.selected : ''}`}
 			onClick={onClick}
 			aria-label={ariaLabel || `Select mood ${emoji}`}
 			tabIndex={0}

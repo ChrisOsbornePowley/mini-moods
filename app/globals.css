@@ -1,15 +1,8 @@
-@import "tailwindcss";
-
 :root {
   --background: #ffffff;
   --foreground: #171717;
-}
-
-@theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
+  --selected:rgb(0, 137, 201);
+  --error: #ef4444;
 }
 
 @media (prefers-color-scheme: dark) {
@@ -23,6 +16,21 @@ body {
   background: var(--background);
   color: var(--foreground);
   font-family: Arial, Helvetica, sans-serif;
+	display: flex;
+	flex-direction: column;
+  align-items: center;
+	min-height: 100vh;
+  margin: 0;
+  padding: 0;
+}
+
+main {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    width: 90%;
 }
 
 @keyframes fadeIn {

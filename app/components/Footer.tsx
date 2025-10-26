@@ -1,3 +1,5 @@
+import styles from './Footer.module.css';
+
 const positiveMessages = [
 	"Keep going, you're doing great!",
 	'Every day is a fresh start.',
@@ -14,11 +16,7 @@ const message =
 	positiveMessages[Math.floor(Math.random() * positiveMessages.length)];
 
 const Footer = () => {
-	return (
-		<footer className='w-full border-t border-gray-200 py-4 mt-8 text-center text-gray-500 text-sm'>
-			{message}
-		</footer>
-	);
+	return <footer className={styles.footer}>{message}</footer>;
 };
 
 export default Footer;
