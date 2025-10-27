@@ -5,3 +5,17 @@ export type MoodRecord = {
 	createdAt: string;
 	updatedAt: string;
 };
+
+export type PaginationInfo = {
+	currentPage: number;
+	totalPages: number;
+	totalCount: number;
+	limit: number;
+	hasNextPage: boolean;
+	hasPreviousPage: boolean;
+};
+
+export type PaginatedMoodsResponse = {
+	data: MoodRecord[];
+	pagination: PaginationInfo;
+};

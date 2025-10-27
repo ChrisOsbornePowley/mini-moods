@@ -9,7 +9,7 @@ export default function MoodItem({ mood }: { mood: MoodRecord }) {
 				{mood.emoji}
 			</Link>
 			<div className={styles.details}>
-				<span>{mood.comment || 'No comment'}</span>
+				<span>{mood.comment}</span>
 				<div className={styles.meta}>
 					Created: {new Date(mood.createdAt).toLocaleString()}
 					{mood.updatedAt && mood.updatedAt !== mood.createdAt && (

@@ -1,12 +1,14 @@
 import MoodItem from './MoodItem';
+import Pagination from './Pagination';
 import styles from './MoodHistory.module.css';
-import type { MoodRecord } from '@/app/types';
+import type { MoodRecord, PaginationInfo } from '@/app/types';
 
 type MoodHistoryProps = {
 	moods: MoodRecord[];
+	pagination?: PaginationInfo;
 };
 
-const MoodHistory = ({ moods }: MoodHistoryProps) => {
+const MoodHistory = ({ moods, pagination }: MoodHistoryProps) => {
 	return (
 		<section className={styles.container}>
 			<ul className={styles.list}>
@@ -15,6 +17,7 @@ const MoodHistory = ({ moods }: MoodHistoryProps) => {
 				))}
 			</ul>
 			{moods.length === 0 && <div>No moods yet.</div>}
+			{pagination && <Pagination pagination={pagination} />}
 		</section>
 	);
 };
