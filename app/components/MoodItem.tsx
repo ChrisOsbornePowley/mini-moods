@@ -1,17 +1,13 @@
+import Link from 'next/link';
 import styles from './MoodItem.module.css';
+import type { MoodRecord } from '@/app/types';
 
-type MoodItem = {
-	id: number;
-	emoji: string;
-	comment?: string | null;
-	createdAt: string;
-	updatedAt: string;
-};
-
-export default function MoodItem({ mood }: { mood: MoodItem }) {
+export default function MoodItem({ mood }: { mood: MoodRecord }) {
 	return (
 		<li className={styles.item}>
-			<span className={styles.emoji}>{mood.emoji}</span>
+			<Link href={`/history/${mood.id}`} className={styles.emoji}>
+				{mood.emoji}
+			</Link>
 			<div className={styles.details}>
 				<span>{mood.comment || 'No comment'}</span>
 				<div className={styles.meta}>
