@@ -1,16 +1,16 @@
 # Mini Moods
 
-Mini Moods is a simple Next.js app for tracking daily moods.  
+Hi! Mini Moods is a simple Next.js app for tracking daily moods.  
 Each day (or multiple times a day), you can enter an emoji and an optional comment to record how you're feeling.  
 Your entries are stored locally in a SQLite database using Prisma ORM, and you can view a history of your moods over time.
 
 ## Features
 
-- Add a mood entry with an emoji and optional comment
-- View a history of your mood entries
 - Built with Next.js, TypeScript, Prisma, and SQLite
 - Auth with Clerk
-- CSS modules for styling
+- CSS Modules for styling
+- Create, update, and delete individual mood entries using client-side components hitting API routes, with an optional comment
+- View a paginated history of your mood entries using server-side components
 
 ## Getting Started
 
@@ -28,19 +28,19 @@ Your entries are stored locally in a SQLite database using Prisma ORM, and you c
      DATABASE_URL="file:/absolute/path/to/your/project/prisma/dev.db"
      ```
 
-     Replace `/absolute/path/to/your/project` with the actual absolute path to a where you want your database to live. Relative paths have issues at the moment with the runtime client being unable to resolve the same relative path.
+     Replace `/absolute/path/to/your/project` with the actual absolute path to a where you want your database to live. Relative paths seem to have issues at the moment with the runtime client being unable to resolve the same relative path. Using a dedicated hosted database would resolve this anyway.
 
-     Add the required Clerk url directions:
-
+   - Run Prisma migration or push the db file up without creating a migration:
+     ```bash
+     npx prisma migrate dev --name init
+     npx prisma db push
+     ```
+   
+   - Add the required Clerk url redirections:
      ```
      NEXT_PUBLIC_CLERK_SIGN_IN_URL=/sign-in
      NEXT_PUBLIC_CLERK_SIGN_IN_FALLBACK_REDIRECT_URL=/
      NEXT_PUBLIC_CLERK_SIGN_UP_FALLBACK_REDIRECT_URL=/
-     ```
-
-   - Run Prisma migration:
-     ```bash
-     npx prisma migrate dev --name init
      ```
 
 3. **Start the development server:**
