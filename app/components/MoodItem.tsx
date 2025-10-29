@@ -22,11 +22,12 @@ export default function MoodItem({ mood }: { mood: MoodRecord }) {
 				<span>{mood.comment}</span>
 				<div className={styles.meta}>
 					Created: {formatDate(mood.createdAt)}
-					{mood.updatedAt && mood.updatedAt !== mood.createdAt && (
-						<span className={styles.updated}>
-							| Updated: {formatDate(mood.updatedAt)}
-						</span>
-					)}
+					{mood.updatedAt &&
+						mood.updatedAt.getTime() !== mood.createdAt.getTime() && (
+							<span className={styles.updated}>
+								| Updated: {formatDate(mood.updatedAt)}
+							</span>
+						)}
 				</div>
 			</div>
 		</li>
