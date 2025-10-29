@@ -2,6 +2,16 @@ import Link from 'next/link';
 import styles from './MoodItem.module.css';
 import type { MoodRecord } from '@/app/types';
 
+const formatDate = (date: Date) => {
+	return date.toLocaleDateString('en-GB', {
+		weekday: 'short',
+		day: 'numeric',
+		month: 'short',
+		hour: '2-digit',
+		minute: '2-digit',
+	});
+};
+
 export default function MoodItem({ mood }: { mood: MoodRecord }) {
 	return (
 		<li className={styles.item}>
@@ -11,10 +21,10 @@ export default function MoodItem({ mood }: { mood: MoodRecord }) {
 			<div className={styles.details}>
 				<span>{mood.comment}</span>
 				<div className={styles.meta}>
-					Created: {new Date(mood.createdAt).toLocaleString()}
+					Created: {formatDate(mood.createdAt)}
 					{mood.updatedAt && mood.updatedAt !== mood.createdAt && (
 						<span className={styles.updated}>
-							| Updated: {new Date(mood.updatedAt).toLocaleString()}
+							| Updated: {formatDate(mood.updatedAt)}
 						</span>
 					)}
 				</div>

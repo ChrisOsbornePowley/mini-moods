@@ -2,37 +2,6 @@ import { NextResponse } from 'next/server';
 import { auth } from '@clerk/nextjs/server';
 import prisma from '@/lib/prisma';
 
-export async function GET(request: Request, { params }: { params: Promise<{ id: string }> }) {
-	try {
-		const { userId } = await auth();
-
-		console.log('user id in specific route', userId);
-
-		if (!userId) {
-			return NextResponse.json({ error: 'Unauthorized' }, { status: 401 });
-		}
-
-		const { id } = await params;
-
-		if (!id || typeof id !== 'string') {
-			return NextResponse.json({ error: 'Invalid id' }, { status: 400 });
-		}
-
-		const mood = await prisma.mood.findFirst({
-			where: {
-				id: id,
-				userId
-			}
-		});
-
-		if (!mood) return NextResponse.json({ error: 'Mood not found' }, { status: 404 });
-		return NextResponse.json(mood);
-	} catch (error) {
-		console.error('GET /api/moods/[id] error:', error);
-		return NextResponse.json({ error: 'Server error' }, { status: 500 });
-	}
-}
-
 export async function PUT(request: Request, { params }: { params: Promise<{ id: string }> }) {
 	try {
 		const { userId } = await auth();
@@ -43,7 +12,6 @@ export async function PUT(request: Request, { params }: { params: Promise<{ id: 
 
 		const { id } = await params;
 
-		// No need to convert to number anymore since id is now a string (CUID)
 		if (!id || typeof id !== 'string') {
 			return NextResponse.json({ error: 'Invalid id' }, { status: 400 });
 		}
@@ -87,7 +55,6 @@ export async function DELETE(request: Request, { params }: { params: Promise<{ i
 
 		const { id } = await params;
 
-		// No need to convert to number anymore since id is now a string (CUID)
 		if (!id || typeof id !== 'string') {
 			return NextResponse.json({ error: 'Invalid id' }, { status: 400 });
 		}

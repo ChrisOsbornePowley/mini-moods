@@ -14,7 +14,11 @@ export default function Home() {
 				<Button href='/history'>View your mood history</Button>
 			</SignedIn>
 			<SignedOut>
-				<Button href='/sign-up'>Sign in or register</Button>
+				<div className={styles.authButtons}>
+					<Button href='/sign-in'>Sign In</Button>
+					<p>or</p>
+					<Button href='/sign-up'>Register</Button>
+				</div>
 			</SignedOut>
 		</div>
 	);

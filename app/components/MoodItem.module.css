@@ -5,6 +5,7 @@
 	border-radius: 0.75rem;
 	padding: 1rem;
 	border: 1px solid var(--foreground);
+	max-width: 600px;
 }
 
 .emoji {

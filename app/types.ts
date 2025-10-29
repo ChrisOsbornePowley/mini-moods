@@ -3,8 +3,8 @@ export type MoodRecord = {
 	emoji: string;
 	comment?: string | null;
 	userId: string;
-	createdAt: string;
-	updatedAt: string;
+	createdAt: Date;
+	updatedAt: Date;
 };
 
 export type PaginationInfo = {
