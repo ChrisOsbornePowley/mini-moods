@@ -1,5 +1,5 @@
 import MoodPicker from '@/app/components/MoodPicker';
 
-export default function NewMoodPage() {
+export default function AddMoodPage() {
 	return <MoodPicker />;
 }

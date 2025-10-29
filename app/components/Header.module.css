@@ -3,7 +3,10 @@
 	margin: 0 auto;
 	border-bottom: 1px solid var(--foreground);
 	padding: 1rem;
-	text-align: center;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	position: relative;
 }
 
 .link {
@@ -17,4 +20,41 @@
 
 .title {
 	margin: 0;
+}
+
+.userSection {
+	display: flex;
+	align-self:last baseline;
+	align-items: center;
+	gap: 1rem;
+	position: absolute;
+	right: 0;
+}
+
+.userButton {
+	width: 2.5rem;
+	height: 2.5rem;
+	border-radius: 8px;
+	border: 2px solid var(--selected);
+	transition: border-color 0.15s;
+}
+
+.userButton:hover {
+	border-color: var(--foreground);
+}
+
+.userPopover {
+	border-radius: 0.75rem;
+	border: 1px solid var(--selected);
+}
+
+.signOutWrapper {
+	display: block;
+}
+
+/* Hide sign out button on small screens */
+@media (max-width: 640px) {
+	.signOutWrapper {
+		display: none;
+	}
 }

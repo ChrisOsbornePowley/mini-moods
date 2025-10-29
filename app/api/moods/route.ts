@@ -1,9 +1,18 @@
 import { NextResponse } from 'next/server';
+import { auth } from '@clerk/nextjs/server';
 import prisma from '@/lib/prisma';
 
 //GET - list all moods with pagination
 export async function GET(request: Request) {
 	try {
+		const { userId } = await auth();
+
+		console.log('Authenticated userId:', userId);
+
+		if (!userId) {
+			return NextResponse.json({ error: 'Unauthorized' }, { status: 401 });
+		}
+
 		const { searchParams } = new URL(request.url);
 		const page = parseInt(searchParams.get('page') || '1', 10);
 		const limit = parseInt(searchParams.get('limit') || '10', 10);
@@ -18,12 +27,15 @@ export async function GET(request: Request) {
 
 		const skip = (page - 1) * limit;
 
-		// Get total count for pagination metadata
-		const totalCount = await prisma.mood.count();
+		// Get total count for pagination metadata (filtered by user)
+		const totalCount = await prisma.mood.count({
+			where: { userId }
+		});
 		const totalPages = Math.ceil(totalCount / limit);
 
-		// Get paginated moods
+		// Get paginated moods (filtered by user)
 		const moods = await prisma.mood.findMany({
+			where: { userId },
 			orderBy: { createdAt: "desc" },
 			skip,
 			take: limit,
@@ -44,11 +56,15 @@ export async function GET(request: Request) {
 		console.error('GET /api/moods error:', error);
 		return NextResponse.json({ error: "Server error" }, { status: 500 });
 	}
-}
-
-//POST - create a new mood
+}//POST - create a new mood
 export async function POST(request: Request) {
 	try {
+		const { userId } = await auth();
+
+		if (!userId) {
+			return NextResponse.json({ error: 'Unauthorized' }, { status: 401 });
+		}
+
 		const { emoji, comment } = await request.json();
 
 		if (!emoji || typeof emoji !== 'string') {
@@ -59,6 +75,7 @@ export async function POST(request: Request) {
 			data: {
 				emoji,
 				comment,
+				userId,
 			},
 		});
 

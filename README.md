@@ -9,7 +9,8 @@ Your entries are stored locally in a SQLite database using Prisma ORM, and you c
 - Add a mood entry with an emoji and optional comment
 - View a history of your mood entries
 - Built with Next.js, TypeScript, Prisma, and SQLite
-- Tailwind CSS for styling
+- Auth with Clerk
+- CSS modules for styling
 
 ## Getting Started
 
@@ -19,13 +20,24 @@ Your entries are stored locally in a SQLite database using Prisma ORM, and you c
    npm install
    ```
 
-2. **Set up the database:**
+2. **Set up the database and .env file:**
 
    - Create a `.env` file in the project root:
+
      ```
      DATABASE_URL="file:/absolute/path/to/your/project/prisma/dev.db"
      ```
+
      Replace `/absolute/path/to/your/project` with the actual absolute path to a where you want your database to live. Relative paths have issues at the moment with the runtime client being unable to resolve the same relative path.
+
+     Add the required Clerk url directions:
+
+     ```
+     NEXT_PUBLIC_CLERK_SIGN_IN_URL=/sign-in
+     NEXT_PUBLIC_CLERK_SIGN_IN_FALLBACK_REDIRECT_URL=/
+     NEXT_PUBLIC_CLERK_SIGN_UP_FALLBACK_REDIRECT_URL=/
+     ```
+
    - Run Prisma migration:
      ```bash
      npx prisma migrate dev --name init
@@ -39,5 +51,3 @@ Your entries are stored locally in a SQLite database using Prisma ORM, and you c
 Open [http://localhost:3000](http://localhost:3000) to use the app.
 
 ---
-
-Built using Next.js and Prisma

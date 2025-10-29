@@ -10,6 +10,7 @@
   },
   "dependencies": {
     "3": "^2.1.0",
+    "@clerk/nextjs": "^6.34.0",
     "@prisma/client": "^6.18.0",
     "dotenv": "^17.2.3",
     "next": "16.0.0",

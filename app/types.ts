@@ -1,7 +1,8 @@
 export type MoodRecord = {
-	id: number;
+	id: string;
 	emoji: string;
 	comment?: string | null;
+	userId: string;
 	createdAt: string;
 	updatedAt: string;
 };
