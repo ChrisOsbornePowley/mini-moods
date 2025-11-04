@@ -21,7 +21,8 @@
 	display: flex;
 	align-items: center;
 	justify-content: space-between;
-	background: #fff;
+	background: var(--foreground);
+	color: var(--background);
 	border-radius: 6px;
 	padding: 0.5rem 1rem;
 	font-size: 1.1rem;
@@ -29,8 +30,4 @@
 
 .emoji {
 	font-size: 1.6rem;
-}
-
-.count {
-	color: var(--background);
 }

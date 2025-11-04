@@ -1,6 +1,7 @@
 import { SignedIn, SignedOut } from '@clerk/nextjs';
 import styles from './Home.module.css';
 import Button from './components/common/Button';
+import ExampleImages from './components/common/ExampleImages';
 
 export default function Home() {
 	return (
@@ -16,10 +17,11 @@ export default function Home() {
 			<SignedOut>
 				<div className={styles.authButtons}>
 					<Button href='/sign-in'>Sign In</Button>
-					<p>or</p>
+					or
 					<Button href='/sign-up'>Register</Button>
 				</div>
 			</SignedOut>
+			<ExampleImages />
 		</div>
 	);
 }

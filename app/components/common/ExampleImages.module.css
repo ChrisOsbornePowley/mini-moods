@@ -1,0 +1,23 @@
+.container {
+	display: flex;
+}
+
+.imageWrapper {
+	margin: 1rem;
+	border: 2px solid var(--foreground);
+	border-radius: 12px;
+	box-shadow: 0 4px 16px rgba(0, 0, 0, 0.12);
+	background: var(--background);
+	padding: 8px;
+	transition: box-shadow 0.2s, transform 0.2s;
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	text-align: center;
+	width: 250px;
+	rotate: 2deg;
+}
+
+.text {
+	margin: 12px;
+}
