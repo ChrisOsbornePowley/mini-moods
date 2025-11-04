@@ -1,6 +1,7 @@
 import { NextResponse } from 'next/server';
 import { auth } from '@clerk/nextjs/server';
 import prisma from '@/lib/prisma';
+import { validEmojis } from '@/app/types';
 
 //POST - create a new mood
 export async function POST(request: Request) {
@@ -13,7 +14,7 @@ export async function POST(request: Request) {
 
 		const { emoji, comment } = await request.json();
 
-		if (!emoji || typeof emoji !== 'string') {
+		if (!emoji || !validEmojis.includes(emoji)) {
 			return NextResponse.json({ error: 'Emoji is required.' }, { status: 400 });
 		}
 

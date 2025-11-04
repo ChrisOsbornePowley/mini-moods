@@ -37,6 +37,10 @@ main {
     padding: 30px;
 }
 
+.error {
+  color: var(--error);
+}
+
 @keyframes fadeIn {
   from {
     opacity: 0;

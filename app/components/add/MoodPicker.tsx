@@ -6,14 +6,15 @@ import Emoji from '@/app/components/common/Emoji';
 import Button from '../common/Button';
 import styles from './MoodPicker.module.css';
 import type { MoodRecord } from '@/app/types';
-
-const moods = ['😁', '🙂', '🫤', '😞', '😩'];
+import type { ValidEmoji } from '@/app/types';
 
 interface MoodPickerProps {
 	onSuccessRoute?: string;
 	initialMood?: MoodRecord;
 	mode?: 'edit' | 'add';
 }
+
+const moods: ValidEmoji[] = ['😁', '🙂', '🫤', '😞', '😩'];
 
 const MoodPicker = ({
 	onSuccessRoute = '/history',
@@ -130,7 +131,7 @@ const MoodPicker = ({
 				</Button>
 			)}
 
-			{error && <div>{error}</div>}
+			{error && <div className='error'>{error}</div>}
 		</form>
 	);
 };

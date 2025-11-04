@@ -1,3 +1,6 @@
+export const validEmojis = ['😁', '🙂', '🫤', '😞', '😩'] as const;
+export type ValidEmoji = typeof validEmojis[number];
+
 export type MoodRecord = {
 	id: string;
 	emoji: string;
