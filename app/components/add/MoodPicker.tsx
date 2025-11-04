@@ -2,8 +2,8 @@
 
 import { useState } from 'react';
 import { useRouter } from 'next/navigation';
-import Emoji from '@/app/components/Emoji';
-import Button from './Button';
+import Emoji from '@/app/components/common/Emoji';
+import Button from '../common/Button';
 import styles from './MoodPicker.module.css';
 import type { MoodRecord } from '@/app/types';
 

@@ -4,8 +4,16 @@
 	gap: 0.75rem;
 	border-radius: 0.75rem;
 	padding: 1rem;
-	border: 1px solid var(--foreground);
 	max-width: 600px;
+	background-color: var(--selectable);
+	color: var(--foreground);
+	border: 2px solid transparent;
+	text-decoration: none;
+}
+
+.item:hover {
+	border-color: var(--foreground);
+	background-color: var(--selected);
 }
 
 .emoji {
@@ -21,8 +29,4 @@
 	font-size: 0.75rem;
 	color: var(--foreground)-200;
 	margin-top: 0.25rem;
-}
-
-.updated {
-	margin-left: 0.5rem;
 }

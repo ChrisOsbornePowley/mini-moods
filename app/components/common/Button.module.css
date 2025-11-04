@@ -5,11 +5,11 @@
 	padding: 0.75rem 1.5rem;
 	border-radius: 0.75rem;
 	text-decoration: none;
-	background: #062b91;
+	background: var(--selectable);
 	border: 2px solid transparent;
 	cursor: pointer;
 	transition: background-color 0.15s;
-	color: #fff;
+	color: var(--foreground);
 }
 
 .button:hover, .button:focus {

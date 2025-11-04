@@ -1,4 +1,4 @@
-import MoodPicker from '@/app/components/MoodPicker';
+import MoodPicker from '@/app/components/add/MoodPicker';
 import type { MoodRecord } from '@/app/types';
 import { auth } from '@clerk/nextjs/server';
 import prisma from '@/lib/prisma';

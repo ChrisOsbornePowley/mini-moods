@@ -1,14 +1,17 @@
 :root {
-  --background: #ffffff;
-  --foreground: #171717;
-  --selected:rgb(0, 137, 201);
-  --error: #ef4444;
+  --background: #F1EDEE;
+  --foreground: #3D5467;
+  --selectable: #30C5FF;
+  --selected: #96cfe9;
+  --error: #FB3640;
 }
 
 @media (prefers-color-scheme: dark) {
   :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
+    --background: #3D5467;
+    --foreground: #F1EDEE;
+    --selected: #30C5FF;
+    --selectable: #3280A4;
   }
 }
 

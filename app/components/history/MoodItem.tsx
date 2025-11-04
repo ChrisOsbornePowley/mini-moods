@@ -14,10 +14,8 @@ const formatDate = (date: Date) => {
 
 export default function MoodItem({ mood }: { mood: MoodRecord }) {
 	return (
-		<li className={styles.item}>
-			<Link href={`/history/${mood.id}`} className={styles.emoji}>
-				{mood.emoji}
-			</Link>
+		<Link href={`/history/${mood.id}`} className={styles.item}>
+			<span className={styles.emoji}>{mood.emoji}</span>
 			<div className={styles.details}>
 				<span>{mood.comment}</span>
 				<div className={styles.meta}>
@@ -30,6 +28,6 @@ export default function MoodItem({ mood }: { mood: MoodRecord }) {
 						)}
 				</div>
 			</div>
-		</li>
+		</Link>
 	);
 }

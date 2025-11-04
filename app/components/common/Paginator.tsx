@@ -2,14 +2,14 @@
 
 import { useRouter, useSearchParams } from 'next/navigation';
 import Button from './Button';
-import styles from './Pagination.module.css';
+import styles from './Paginator.module.css';
 import type { PaginationInfo } from '@/app/types';
 
-type PaginationProps = {
+type PaginatorProps = {
 	pagination: PaginationInfo;
 };
 
-const Pagination = ({ pagination }: PaginationProps) => {
+const Paginator = ({ pagination }: PaginatorProps) => {
 	const router = useRouter();
 	const searchParams = useSearchParams();
 
@@ -73,4 +73,4 @@ const Pagination = ({ pagination }: PaginationProps) => {
 	);
 };
 
-export default Pagination;
+export default Paginator;

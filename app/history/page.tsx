@@ -1,4 +1,4 @@
-import MoodHistory from '@/app/components/MoodHistory';
+import MoodHistory from '@/app/components/history/MoodHistory';
 import type { PaginatedMoodsResponse } from '@/app/types';
 import { auth } from '@clerk/nextjs/server';
 import prisma from '@/lib/prisma';

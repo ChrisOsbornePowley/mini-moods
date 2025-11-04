@@ -1,6 +1,6 @@
 import { SignedIn, SignedOut } from '@clerk/nextjs';
 import styles from './Home.module.css';
-import Button from './components/Button';
+import Button from './components/common/Button';
 
 export default function Home() {
 	return (

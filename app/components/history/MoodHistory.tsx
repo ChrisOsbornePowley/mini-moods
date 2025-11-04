@@ -1,5 +1,5 @@
 import MoodItem from './MoodItem';
-import Pagination from './Pagination';
+import Paginator from '@/app/components/common/Paginator';
 import styles from './MoodHistory.module.css';
 import type { MoodRecord, PaginationInfo } from '@/app/types';
 
@@ -17,7 +17,7 @@ const MoodHistory = ({ moods, pagination }: MoodHistoryProps) => {
 				))}
 			</ul>
 			{moods.length === 0 && <div>No moods yet.</div>}
-			{pagination && <Pagination pagination={pagination} />}
+			{pagination && <Paginator pagination={pagination} />}
 		</section>
 	);
 };
