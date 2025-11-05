@@ -22,9 +22,16 @@
 	margin: 0;
 }
 
-.userSection {
+.leftSection {
 	display: flex;
-	align-self:last baseline;
+	align-items: center;
+	gap: 1rem;
+	position: absolute;
+	left: 0;
+}
+
+.rightSection {
+	display: flex;
 	align-items: center;
 	gap: 1rem;
 	position: absolute;

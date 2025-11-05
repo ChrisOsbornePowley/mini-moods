@@ -1,7 +1,7 @@
 import MoodHistory from '@/app/components/history/MoodHistory';
 import EmojiStats from '@/app/components/history/EmojiStats';
 import { fetchMoods, fetchEmojiStats } from './functions';
-import styles from './historyPage.module.css';
+import styles from './page.module.css';
 
 type HistoryPageProps = {
 	searchParams: Promise<{ page?: string; limit?: string }>;

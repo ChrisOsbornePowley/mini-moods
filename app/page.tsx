@@ -1,7 +1,6 @@
 import { SignedIn, SignedOut } from '@clerk/nextjs';
-import styles from './Home.module.css';
-import Button from './components/common/Button';
-import ExampleImages from './components/common/ExampleImages';
+import styles from './page.module.css';
+import Button from '@/app/components/common/Button';
 
 export default function Home() {
 	return (
@@ -21,7 +20,6 @@ export default function Home() {
 					<Button href='/sign-up'>Register</Button>
 				</div>
 			</SignedOut>
-			<ExampleImages />
 		</div>
 	);
 }
