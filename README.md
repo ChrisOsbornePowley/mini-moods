@@ -10,7 +10,13 @@ Your entries are stored locally in a SQLite database using Prisma ORM, and you c
 - Auth with Clerk
 - CSS Modules for styling
 - Create, update, and delete individual mood entries using client-side components hitting API routes, with an optional comment
-- View a paginated history of your mood entries using server-side components
+- View paginated history of your mood entries using server-side components
+
+## Screenshots
+
+![Welcome Page](./public/welcome_page.png)
+![Add Page](./public/add_page.png)
+![About Page](./public/about_page.png)
 
 ## Getting Started
 
@@ -31,11 +37,12 @@ Your entries are stored locally in a SQLite database using Prisma ORM, and you c
      Replace `/absolute/path/to/your/project` with the actual absolute path to a where you want your database to live. Relative paths seem to have issues at the moment with the runtime client being unable to resolve the same relative path. Using a dedicated hosted database would resolve this anyway.
 
    - Run Prisma migration or push the db file up without creating a migration:
+
      ```bash
      npx prisma migrate dev --name init
      npx prisma db push
      ```
-   
+
    - Add the required Clerk url redirections:
      ```
      NEXT_PUBLIC_CLERK_SIGN_IN_URL=/sign-in
@@ -51,6 +58,7 @@ Your entries are stored locally in a SQLite database using Prisma ORM, and you c
 Open [http://localhost:3000](http://localhost:3000) to use the app.
 
 ## What's next
+
 I built this in a few short sessions, so there are a few things to improve to get it to a more solid state:
 
 1. Part way during the project, I migrated my GET API routes into just functions directly in the server component that used it. I would explore migrating the remaining API routes into server actions, and see about best practices here for handling forms in this case.
